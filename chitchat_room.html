@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Página de Salas ChitChat</title>
+
+
+<!--links do firebase-->
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+<!--fonte e código HTML para caracteres especiais-->
+<link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!--links bootstrap-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<!--link do arquivo style para a página kwitter-->
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+
+<div class="container">
+
+	<button id="logout" onclick="logout();" class="glyphicon glyphicon-log-out btn btn-danger">Sair</button>
+    <!--A função logout() desconectará o usuário do aplicativo Kwitter e o redirecionará para a página inicial de entrada-->   
+	<!--id: utilizada para identificação do botão-->
+	<!--glyphicon glyphicon-log-out: essa classe bootstrap adicionará o ícone dentro do botão Sair-->
+	<!--onclick=”logout()”: "onclick" é um evento logout() é a função que será chamada-->
+
+	<div style="text-align: center;">
+		<h1  class="header">	
+			ChitChat	
+			<sup>
+				<img src="m2.png">
+			</sup>
+		</h1>
+
+		<h3 id="user_name" class="color_white"></h3>
+		<!--tag h3 será utilizada para armazenar o nome do usuário-->
+		<!--id: pra chamar e atualizar a tag h3 no JS-->
+		<!--class: chamada no css para ser estilizada-->
+
+
+		<div class="form-group input_div_room_page">
+			<label>#Adicionar Sala:</label>
+			<input type="text" id="room_name" class="form-control" placeholder="#Nome da Sala">
+			<!--type="text":denotará que a caixa de entrada aceitará inserções de texto -->
+			<!--id: utilizada para identificação da caixa-->
+			<!--class=”form-control”: uma classe bootstrap que adiciona borda, margem e
+preenchimento à caixa de entrada-->
+            <!--placeholder: uma dica para o usuário entender o que deve ser adicionado na
+caixa de entrada-->
+
+		</div>
+		<br>
+		
+		<button onclick="addRoom();" class="btn btn-success">#Adicionar Sala</button>
+		<!--addRoom() adicionará o nome da sala no armazenamento local e ao banco de
+dados do Firebase, para então redirecionar o usuário para kwitter_page-->
+        <!--id: utilizada para identificação do botão-->
+		<!--btn: adicionará preenchimento e removerá a borda e a cor do botão-->
+		<!--btn-success: essa classe bootstrap adicionará uma borda e cor de fundo
+verde-clara ao botão-->
+        <!--onclick="addRoom" (evento e função)-->
+
+
+
+		<h3 class="color_white">#SALAS EM DESTAQUE</h3>
+
+		<div id="output"></div>
+		<!--essa tag div será usada para armazenar todos os nomes das salas-->
+		
+	</div>
+</div>
+
+<!--link do arquivo JS da página kwitter-->
+<script src="chitchat_room.js"></script>
+</body>
+</html>
